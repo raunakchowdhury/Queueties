@@ -1,11 +1,11 @@
-//Raunak Chowdhury
+//Queueties
 //APCS2 pd2
 //HW45 --  Arrr, There Be Priorities Here Matey .
 //2018-09-05
 
 import java.util.ArrayList;
 
-public class ArrayPriorityQueue {
+public class ArrayPriorityQueue implements PriorityQueue {
 ArrayList<String> _list;
 
 //inst an ArrayList
