@@ -9,46 +9,60 @@ import java.util.ArrayList;
 public class ALHeap
 {
 
-  //instance vars
-  private ArrayList<Integer> _heap; 
+    //instance vars
+    private ArrayList<Integer> _heap;
+    private int size; 
 
-  /*****************************************************
-   * default constructor  ---  inits empty heap
-   *****************************************************/
-  public ALHeap() 
-  { 
-  }
-
-
-
-  /*****************************************************
-   * toString()  ---  overrides inherited method
-   * Returns either 
-   * a) a level-order traversal of the tree (simple version)
-   * b) ASCII representation of the tree (more complicated, more fun)
-   *****************************************************/
-  public String toString() 
-  { 
-  }//O(?)
+    /*****************************************************
+     * default constructor  ---  inits empty heap
+     *****************************************************/
+    public ALHeap() 
+    {
+	_heap= new ArrayList<Integer>();
+	size=0; 
+    }
 
 
-  /*****************************************************
-   * boolean isEmpty()
-   * Returns true if no meaningful elements in heap, false otherwise
-   *****************************************************/
-  public boolean isEmpty()
-  { 
-  }//O(?)
+
+    /*****************************************************
+     * toString()  ---  overrides inherited method
+     * Returns either 
+     * a) a level-order traversal of the tree (simple version)
+-> current version implemented
+* b) ASCII representation of the tree (more complicated, more fun)
+*****************************************************/
+    public String toString() 
+    {
+	String str= "[ ";
+	for (Integer i: _heap){
+	    str+= i +" ";
+	}
+	str+= "]";
+	return str;
+      
+    }//O(n)
 
 
-  /*****************************************************
-   * Integer peekMin()
-   * Returns min value in heap
-   * Postcondition: Heap remains unchanged.
+    /*****************************************************
+     * boolean isEmpty()
+     * Returns true if no meaningful elements in heap, false otherwise
+     * changed by add and remove methods
+     *****************************************************/
+    public boolean isEmpty()
+    {
+	return (size==0);
+    }//O(1)
+
+
+    /*****************************************************
+     * Integer peekMin()
+     * Returns min value in heap
+     * Postcondition: Heap remains unchanged.
    *****************************************************/
   public Integer peekMin()
-  { 
-  }//O(?)
+  {
+      return _heap.get(0);
+  }//O(1)
 
 
   /*****************************************************
