@@ -131,9 +131,15 @@ public class ALHeap {
      * -1 if no children, or if input pos is not in ArrayList
      * Postcondition: Tree unchanged
      *****************************************************/
-    //private int minChildPos( int pos )
-    //{
-    //}//O(?)
+    private int minChildPos( int pos ) {
+        int left = 2 * pos; 
+        int right = 2 * pos + 1; 
+        if (left >= _heap.size())
+            return -1; 
+        else if (left == _heap.size() -1)
+            return left; 
+        return Math.max(left, right); 
+    }//O(?)
 
 
     //************ aux helper fxns ***************
