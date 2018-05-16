@@ -16,3 +16,6 @@
 - Next steps would be to complete the isEmpty(), add(), and peekMin() methods. Add() is essential to subsequent methods.
 - Following that, the next level in priority are the removeMin() and minChildPos() methods. minChildPos() is a helper function for removeMin() and the two should be completed together. 
 
+
+##Side Note 
+- You might notice that there are four contributors for this repository. This is because AK was operating on her father's account so just so you know, there's nothing funky going on. Everything is under control. 
