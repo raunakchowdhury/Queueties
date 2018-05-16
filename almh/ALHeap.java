@@ -136,9 +136,9 @@ public class ALHeap {
         int right = 2 * pos + 1; 
         if (left >= _heap.size())
             return -1; 
-        else if (left == _heap.size() -1)
+        else if (left == _heap.size() -1 || _heap.get(left) >= _heap.get(right))
             return left; 
-        return Math.max(left, right); 
+        return right; 
     }//O(?)
 
 
