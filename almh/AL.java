@@ -59,7 +59,7 @@ public class ALHeap {
 
     algo: 
     1) set addVal in the next available slot (ie. succeeding pos in a level order traversal).increment size
-    2)if addVal < parent, swap with parent.
+    2)if addVal<parent, swap with parent.
     3) continue swapping until minheap properties satisfied
 
     LC(p) = 2p+1
@@ -70,45 +70,6 @@ public class ALHeap {
     - right children have even indices
     - left children have odd indices
   *****************************************************/
-<<<<<<< HEAD
-    public void add( Integer addVal )
-    {
-	int i; // initial index
-	int par; // initial parent index
-
-	// add addVal to heap and initialize 
-	_heap.add(addVal);
-	i= _heap.size()-1;
-
-	//root
-	if (i==0){
-	    return;
-	}
-	else if (i%2==0){
-	    par= (i-2)/2;}
-
-	else {
-	    par= (i-1)/2;}
-    
-	//see if smaller than parent
-	while (par>=0 && par< _heap.size() && _heap.get(i)< _heap.get(par)){
-	    
-	    //right child
-	    if (i % 2 == 0){
-		swap (i, par);
-		i=par;
-		par= ((par-2)/2);
-	    }
-	    //left child
-	    else{
-		swap (i, par);
-		i=par;
-		par= ((par-1)/2);
-	    }}	     
-	  
-      
-      
-=======
     public void add( Integer addVal ) {
 	    int i; //index
 	    // add addVal to heap
@@ -131,42 +92,33 @@ public class ALHeap {
 		        swap (i, (i-1)/2);
 	        }	        
         }
->>>>>>> e229c576b7217277feced2a8e21afe1415a16602
     }//O(1)ish 
+
 
     /*****************************************************
    * removeMin()  ---  means of removing an element from heap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
-   * 
-   * algo: 
-   *    1. 
    *****************************************************/
-    public Integer removeMin() { 
-        return 1; 
-    }//O(?)
+    // public Integer removeMin()
+    //{ 
+    //}//O(?)
+
 
   /*****************************************************
    * minChildPos(int)  ---  helper fxn for removeMin()
    * Returns index of least child, or 
    * -1 if no children, or if input pos is not in ArrayList
    * Postcondition: Tree unchanged
-   * NEED TO KNOW: 
-   *    left child = position (2*index)
-   *    right child = position (2*index + 1)
    *****************************************************/
-  private int minChildPos( int pos ) { 
-        int left = 2 * pos; 
-        int right = 2 * pos + 1; 
-        if (left >= _heap.size())
-            return -1; 
-        else if (left = _heap.size() - 1)
-            return left; 
-        return Math.max(left, right); 
-  }//O(?)
+  //private int minChildPos( int pos )
+  //{ 
+  //}//O(?)
   
+
   //************ aux helper fxns ***************
-  private Integer minOf( Integer a, Integer b ){
+  private Integer minOf( Integer a, Integer b )
+  {
     if ( a.compareTo(b) < 0 )
 	    return a;
     else
@@ -174,13 +126,17 @@ public class ALHeap {
   }
 
   //swap for an ArrayList
-  private void swap( int pos1, int pos2 ) {
+  private void swap( int pos1, int pos2 )
+  {
     _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
   }
   //********************************************
 
+
+
   //main method for testing
-  public static void main( String[] args ) {
+  public static void main( String[] args )
+  {
    
       ALHeap pile = new ALHeap();
 
