@@ -70,45 +70,6 @@ public class ALHeap {
     - right children have even indices
     - left children have odd indices
   *****************************************************/
-<<<<<<< HEAD
-    public void add( Integer addVal )
-    {
-	int i; // initial index
-	int par; // initial parent index
-
-	// add addVal to heap and initialize 
-	_heap.add(addVal);
-	i= _heap.size()-1;
-
-	//root
-	if (i==0){
-	    return;
-	}
-	else if (i%2==0){
-	    par= (i-2)/2;}
-
-	else {
-	    par= (i-1)/2;}
-    
-	//see if smaller than parent
-	while (par>=0 && par< _heap.size() && _heap.get(i)< _heap.get(par)){
-	    
-	    //right child
-	    if (i % 2 == 0){
-		swap (i, par);
-		i=par;
-		par= ((par-2)/2);
-	    }
-	    //left child
-	    else{
-		swap (i, par);
-		i=par;
-		par= ((par-1)/2);
-	    }}	     
-	  
-      
-      
-=======
     public void add( Integer addVal ) {
 	    int i; //index
 	    // add addVal to heap
@@ -131,7 +92,6 @@ public class ALHeap {
 		        swap (i, (i-1)/2);
 	        }	        
         }
->>>>>>> e229c576b7217277feced2a8e21afe1415a16602
     }//O(1)ish 
 
 
