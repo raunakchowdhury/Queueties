@@ -6,8 +6,7 @@
 
 import java.util.ArrayList;
 
-public class ALHeap
-{
+public class ALHeap {
 
     //instance vars
     private ArrayList<Integer> _heap;
@@ -15,12 +14,9 @@ public class ALHeap
     /*****************************************************
      * default constructor  ---  inits empty heap
      *****************************************************/
-    public ALHeap() 
-    {
-	_heap= new ArrayList<Integer>();
+    public ALHeap() {
+	    _heap= new ArrayList<Integer>();
     }
-
-
 
     /*****************************************************
      * toString()  ---  overrides inherited method
@@ -29,28 +25,22 @@ public class ALHeap
 -> current version implemented
 * b) ASCII representation of the tree (more complicated, more fun)
 *****************************************************/
-    public String toString() 
-    {
-	String str= "[ ";
-	for (Integer i: _heap){
-	    str+= i +" ";
-	}
-	str+= "]";
-	return str;
-      
+    public String toString() {
+	    String str= "[ ";
+	    for (Integer i: _heap)
+	        str+= i +" ";
+	    str+= "]";
+	    return str;  
     }//O(n)
-
 
     /*****************************************************
      * boolean isEmpty()
      * Returns true if no meaningful elements in heap, false otherwise
      * changed by add and remove methods
      *****************************************************/
-    public boolean isEmpty()
-    {
-	return (_heap.size()==0);
+    public boolean isEmpty() {
+	    return _heap.size() == 0;
     }//O(1)
-
 
     /*****************************************************
      * Integer peekMin()
@@ -58,56 +48,51 @@ public class ALHeap
      * Postcondition: Heap remains unchanged.
      * first value of _heap must be min value
    *****************************************************/
-  public Integer peekMin()
-  {
+  public Integer peekMin() {
       return _heap.get(0);
   }//O(1)
-
 
   /*****************************************************
    * add(Integer) 
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
 
-algo: 
-1) set addVal in the next available slot (ie. succeeding pos in a level order traversal).increment size
-2)if addVal<parent, swap with parent.
-3) continue swapping until minheap properties satisfied
+    algo: 
+    1) set addVal in the next available slot (ie. succeeding pos in a level order traversal).increment size
+    2)if addVal<parent, swap with parent.
+    3) continue swapping until minheap properties satisfied
 
-LC(p) = 2p+1
-RC(p) = 2p+2
-where p is index of parent node and each is either left or right child
+    LC(p) = 2p+1
+    RC(p) = 2p+2
+    where p is index of parent node and each is either left or right child
 
-also useful:
-- right children have even indices
-- left children have odd indices
+    also useful:
+    - right children have even indices
+    - left children have odd indices
   *****************************************************/
-    public void add( Integer addVal )
-    {
-	int i; //index
-	// add addVal to heap
-	_heap.add(addVal);
-	i= _heap.size()-1;
-	//see if smaller than parent
-	//root
-	if (i ==0){
-	    return;
-	}
-	//right child
-	else if (i % 2 == 0){
-	    while (addVal< _heap.get((i-2)/2)){
-		swap (i, (i-2)/2)
-		i= (i-2)/2;
-	    }}
-	//left child
+    public void add( Integer addVal ) {
+	    int i; //index
+	    // add addVal to heap
+	    _heap.add(addVal);
+	    i = _heap.size()-1;
+	    //see if smaller than parent
+	    //root
+	    if (i ==0)
+	      return;
+	    //right child
+	    else if (i % 2 == 0){
+	        while (addVal < _heap.get((i-2)/2)) {
+		        swap (i, (i-2)/2); 
+		        i= (i-2)/2;
+            }
+        }
+	    //left child
         else{
-	    while (addVal< _heap.get((i-1)/2)){
-		swap (i, (i-1)/2);
-	    }	      
-	  
-      
-      
-	}}//O(1)ish 
+	        while (addVal< _heap.get((i-1)/2)){
+		        swap (i, (i-1)/2);
+	        }	        
+        }
+    }//O(1)ish 
 
 
     /*****************************************************
