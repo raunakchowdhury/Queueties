@@ -11,7 +11,6 @@ public class ALHeap
 
     //instance vars
     private ArrayList<Integer> _heap;
-    private int size; 
 
     /*****************************************************
      * default constructor  ---  inits empty heap
@@ -19,7 +18,6 @@ public class ALHeap
     public ALHeap() 
     {
 	_heap= new ArrayList<Integer>();
-	size=0; 
     }
 
 
@@ -50,7 +48,7 @@ public class ALHeap
      *****************************************************/
     public boolean isEmpty()
     {
-	return (size==0);
+	return (_heap.size()==0);
     }//O(1)
 
 
@@ -58,6 +56,7 @@ public class ALHeap
      * Integer peekMin()
      * Returns min value in heap
      * Postcondition: Heap remains unchanged.
+     * first value of _heap must be min value
    *****************************************************/
   public Integer peekMin()
   {
@@ -69,20 +68,55 @@ public class ALHeap
    * add(Integer) 
    * Inserts an element in the heap
    * Postcondition: Tree exhibits heap property.
-   *****************************************************/
-  public void add( Integer addVal )
-  { 
-  }//O(?)
+
+algo: 
+1) set addVal in the next available slot (ie. succeeding pos in a level order traversal).increment size
+2)if addVal<parent, swap with parent.
+3) continue swapping until minheap properties satisfied
+
+LC(p) = 2p+1
+RC(p) = 2p+2
+where p is index of parent node and each is either left or right child
+
+also useful:
+- right children have even indices
+- left children have odd indices
+  *****************************************************/
+    public void add( Integer addVal )
+    {
+	int i; //index
+	// add addVal to heap
+	_heap.add(addVal);
+	i= _heap.size()-1;
+	//see if smaller than parent
+	//root
+	if (i ==0){
+	    return;
+	}
+	//right child
+	else if (i % 2 == 0){
+	    while (addVal< _heap.get((i-2)/2)){
+		swap (i, (i-2)/2);
+	    }}
+	//left child
+        else{
+	    while (addVal< _heap.get((i-1)/2)){
+		swap (i, (i-1)/2);
+	    }	      
+	  
+      
+      
+	}}//O(1)ish 
 
 
-  /*****************************************************
+    /*****************************************************
    * removeMin()  ---  means of removing an element from heap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
    *****************************************************/
-  public Integer removeMin()
-  { 
-  }//O(?)
+    // public Integer removeMin()
+    //{ 
+    //}//O(?)
 
 
   /*****************************************************
@@ -91,9 +125,9 @@ public class ALHeap
    * -1 if no children, or if input pos is not in ArrayList
    * Postcondition: Tree unchanged
    *****************************************************/
-  private int minChildPos( int pos )
-  { 
-  }//O(?)
+  //private int minChildPos( int pos )
+  //{ 
+  //}//O(?)
   
 
   //************ aux helper fxns ***************
@@ -117,7 +151,7 @@ public class ALHeap
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   
       ALHeap pile = new ALHeap();
 
       pile.add(2);
@@ -140,7 +174,7 @@ public class ALHeap
       System.out.println(pile);
       pile.add(9);
       System.out.println(pile);
-
+ /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       System.out.println("removing " + pile.removeMin() + "...");
       System.out.println(pile);
       System.out.println("removing " + pile.removeMin() + "...");
