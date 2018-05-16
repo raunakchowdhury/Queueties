@@ -59,7 +59,7 @@ public class ALHeap {
 
     algo: 
     1) set addVal in the next available slot (ie. succeeding pos in a level order traversal).increment size
-    2)if addVal<parent, swap with parent.
+    2)if addVal < parent, swap with parent.
     3) continue swapping until minheap properties satisfied
 
     LC(p) = 2p+1
@@ -94,31 +94,39 @@ public class ALHeap {
         }
     }//O(1)ish 
 
-
     /*****************************************************
    * removeMin()  ---  means of removing an element from heap
    * Removes and returns least element in heap.
    * Postcondition: Tree maintains heap property.
+   * 
+   * algo: 
+   *    1. 
    *****************************************************/
-    // public Integer removeMin()
-    //{ 
-    //}//O(?)
-
+    public Integer removeMin() { 
+        return 1; 
+    }//O(?)
 
   /*****************************************************
    * minChildPos(int)  ---  helper fxn for removeMin()
    * Returns index of least child, or 
    * -1 if no children, or if input pos is not in ArrayList
    * Postcondition: Tree unchanged
+   * NEED TO KNOW: 
+   *    left child = position (2*index)
+   *    right child = position (2*index + 1)
    *****************************************************/
-  //private int minChildPos( int pos )
-  //{ 
-  //}//O(?)
+  private int minChildPos( int pos ) { 
+        int left = 2 * pos; 
+        int right = 2 * pos + 1; 
+        if (left >= _heap.size())
+            return -1; 
+        else if (left = _heap.size() - 1)
+            return left; 
+        return Math.max(left, right); 
+  }//O(?)
   
-
   //************ aux helper fxns ***************
-  private Integer minOf( Integer a, Integer b )
-  {
+  private Integer minOf( Integer a, Integer b ){
     if ( a.compareTo(b) < 0 )
 	    return a;
     else
@@ -126,17 +134,13 @@ public class ALHeap {
   }
 
   //swap for an ArrayList
-  private void swap( int pos1, int pos2 )
-  {
+  private void swap( int pos1, int pos2 ) {
     _heap.set( pos1, _heap.set( pos2, _heap.get(pos1) ) );	
   }
   //********************************************
 
-
-
   //main method for testing
-  public static void main( String[] args )
-  {
+  public static void main( String[] args ) {
    
       ALHeap pile = new ALHeap();
 
