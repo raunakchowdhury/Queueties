@@ -96,7 +96,8 @@ also useful:
 	//right child
 	else if (i % 2 == 0){
 	    while (addVal< _heap.get((i-2)/2)){
-		swap (i, (i-2)/2);
+		swap (i, (i-2)/2)
+		i= (i-2)/2;
 	    }}
 	//left child
         else{
