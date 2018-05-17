@@ -8,7 +8,7 @@ public class RunMed {
    }
 
    public int getMedian() { 
-       return 0; 
+       return 1;  
    }
 
    public void add(Integer newVal) {

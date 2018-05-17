@@ -1,6 +1,5 @@
 /*****************************************************
 * class ALHeap
-* SKELETON
 * Implements a min heap using an ArrayList as underlying container
 *****************************************************/
 
@@ -14,7 +13,7 @@ private ArrayList<Integer> _heap;
 /*****************************************************
 * default constructor  ---  inits empty heap
 *****************************************************/
-public ALHeap() {
+public ALHeapMin() {
         _heap = new ArrayList<Integer>();
 }
 
@@ -157,7 +156,7 @@ private int minChildPos( int pos ) {
         int right = 2 * pos + 2;
         if (left >= _heap.size())
                 return -1;
-        else if (left == _heap.size() -1 || _heap.get(left) >= _heap.get(right))
+        else if (left == _heap.size() -1 || _heap.get(left) <= _heap.get(right))
                 return left;
         return right;
 }    //O(?)
