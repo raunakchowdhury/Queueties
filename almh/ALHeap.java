@@ -1,7 +1,14 @@
+/*****************************************************
+* class ALHeap
+* Implements a min heap using an ArrayList as underlying container
+*****************************************************/
+
 import java.util.ArrayList;
 
-public class ALHeapMax { 
-    private ArrayList<Integer> _heap;
+public class ALHeap {
+
+//instance vars
+private ArrayList<Integer> _heap;
 
 /*****************************************************
 * default constructor  ---  inits empty heap
@@ -9,6 +16,7 @@ public class ALHeapMax {
 public ALHeap() {
         _heap = new ArrayList<Integer>();
 }
+
 
 /*****************************************************
 * toString()  ---  overrides inherited method
@@ -27,6 +35,7 @@ public String toString() {
 
 }    //O(n)
 
+
 /*****************************************************
 * boolean isEmpty()
 * Returns true if no meaningful elements in heap, false otherwise
@@ -35,6 +44,7 @@ public String toString() {
 public boolean isEmpty() {
         return (_heap.size() == 0);
 }    //O(1)
+
 
 /*****************************************************
 * Integer peekMin()
@@ -45,6 +55,7 @@ public boolean isEmpty() {
 public Integer peekMin() {
         return _heap.get(0);
 }    //O(1)
+
 
 /*****************************************************
 * add(Integer)
@@ -64,7 +75,8 @@ public Integer peekMin() {
    - right children have even indices
    - left children have odd indices
 *****************************************************/
-public void add( Integer addVal ) {
+public void add( Integer addVal )
+{
         int i; // initial index
         int par; // initial parent index
 
@@ -82,7 +94,7 @@ public void add( Integer addVal ) {
         }
 
         //see if smaller than parent
-        while (par <= 0 && par > _heap.size() && _heap.get(i) > _heap.get(par)) {
+        while (par >= 0 && par < _heap.size() && _heap.get(i) < _heap.get(par)) {
 
                 //right child
                 if (i % 2 == 0) {
@@ -167,5 +179,54 @@ private void swap(int pos1, int pos2) {
 
 //main method for testing
 public static void main(String[] args) {
+
+        ALHeap pile = new ALHeap();
+
+        pile.add(2);
+        System.out.println(pile);
+        pile.add(4);
+        System.out.println(pile);
+        pile.add(6);
+        System.out.println(pile);
+        pile.add(8);
+        System.out.println(pile);
+        pile.add(10);
+        System.out.println(pile);
+        pile.add(1);
+        System.out.println(pile);
+        pile.add(3);
+        System.out.println(pile);
+        pile.add(5);
+        System.out.println(pile);
+        pile.add(7);
+        System.out.println(pile);
+        pile.add(9);
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        System.out.println("removing " + pile.removeMin() + "...");
+        System.out.println(pile);
+        /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 }    //end main()
-}
+
+}//end class ALHeap
