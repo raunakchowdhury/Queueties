@@ -1,5 +1,6 @@
 import java.io.File;
 import java.util.Scanner;
+import java.util.NoSuchElementException;
 
 public class RunMed {
 private ALHeapMin lilVals;
@@ -29,7 +30,8 @@ public RunMed(){
 *****************************************************/
 public double getMedian() {
         double med;
-
+        if (bigVals.size() == 0) //no values in maxHeap
+                throw new NoSuchElementException();
         if (bigVals.size() == lilVals.size())
                 med = (bigVals.peekMax() + lilVals.peekMin()) / 2.0;
         else
