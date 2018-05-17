@@ -10,6 +10,10 @@ public ALHeapMax() {
         _heap = new ArrayList<Integer>();
 }
 
+public int size() { 
+    return _heap.size();
+}
+
 /*****************************************************
 * toString()  ---  overrides inherited method
 * Returns either
@@ -42,7 +46,7 @@ public boolean isEmpty() {
 * Postcondition: Heap remains unchanged.
 * first value of _heap must be min value
 *****************************************************/
-public Integer peekMin() {
+public Integer peekMax() {
         return _heap.get(0);
 }    //O(1)
 
@@ -152,49 +156,5 @@ private void swap(int pos1, int pos2) {
 //main method for testing
 public static void main(String[] args) {
 
-    ALHeapMax pile = new ALHeapMax();
-
-    pile.add(2);
-    System.out.println(pile);
-    pile.add(4);
-    System.out.println(pile);
-    pile.add(6);
-    System.out.println(pile);
-    pile.add(8);
-    System.out.println(pile);
-    pile.add(10);
-    System.out.println(pile);
-    pile.add(1);
-    System.out.println(pile);
-    pile.add(3);
-    System.out.println(pile);
-    pile.add(5);
-    System.out.println(pile);
-    pile.add(7);
-    System.out.println(pile);
-    pile.add(9);
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
-    System.out.println("removing " + pile.removeMax() + "...");
-    System.out.println(pile);
 }    //end main()
 }
