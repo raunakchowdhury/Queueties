@@ -127,14 +127,15 @@ public void add( Integer addVal )
 *****************************************************/
 public Integer removeMin()
 {
+        //no root
         if (_heap.size() == 0)
                 return null;
         // Only root remains
         if (minChildPos(0) == -1)
                 return _heap.remove(0);
-        int pos = 0; //keep a marker on the root, which is the min
+        int pos = 0; //keep a marker on the min, which is the root at first
         int minChildPos = minChildPos(0);
-        // swap the min with the smaller child
+        // swap the min with the smaller child until there are no children left to swap with
         while (minChildPos != -1) {
                 swap(pos,minChildPos);
                 pos = minChildPos;
