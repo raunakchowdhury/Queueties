@@ -16,6 +16,14 @@
 - Next steps would be to complete the isEmpty(), add(), and peekMin() methods. Add() is essential to subsequent methods.
 - Following that, the next level in priority are the removeMin() and minChildPos() methods. minChildPos() is a helper function for removeMin() and the two should be completed together. 
 
+## Here is the workflow/logic that we followed to implement each method (#2)
+- The constructor was merely an initialization of an ArrayList with Integer objects.
+- The toString() printed out a level-order traversal of the tree (ie. printed out elements of _heap one by one).
+- For isEmpty() this group decided to use the size() method available for ArrayLists.
+- peekMin() took advantage of the fact that the minimum value in a minheap is at index 0.
+- add() was a little more complicated. In order to complete this method, the group had to recall that the poistion of the left child is 2(parent's index)+1 and 2(parent's index)+2. Each added value had to be compared with its parents and was swapped upwards until minheap properties satisfied.
+- removeMin() relied heavily on minChildPos() and thus, minChildPos() had to be implemented first.
+- the thinking and working was shared equally among team members. 
 
 ##Side Note 
 - You might notice that there are four contributors for this repository. This is because AK was operating on her father's account so just so you know, there's nothing funky going on. Everything is under control. 
