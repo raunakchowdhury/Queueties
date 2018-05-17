@@ -138,7 +138,7 @@ public Integer removeMin()
         while (minChildPos != -1) {
                 swap(pos,minChildPos);
                 pos = minChildPos;
-                System.out.println(pos);
+                //System.out.println(pos);
                 minChildPos = minChildPos(pos);
         }
         return _heap.remove(pos);
